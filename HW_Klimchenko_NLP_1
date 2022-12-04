@@ -1,0 +1,30 @@
+5 задание с занятия.
+
+from tqdm import tqdm
+data_tok = []
+for x in data:
+    data_tok.append(tokenizer.tokenize(x.lower()))
+
+flatten_tok = []
+for x in data_tok:
+  for i in x:
+    flatten_tok.append(i)
+
+stem_lem = []
+lem_stem = []
+for x in tqdm(flatten_tok):
+  stem_lem.append(lemmatizer.lemmatize(ps.stem(x)))
+  lem_stem.append(ps.stem(lemmatizer.lemmatize(x)))
+print(f'Уникальных слов: \n Сначала стемма, затем лемма:{len(set(stem_lem))}')
+print(f' Сначала лемма, затем стемма:{len(set(lem_stem))}')
+
+
+
+Регулярные выражения.
+
+https://www.hackerrank.com/challenges/capturing-non-capturing-groups/problem?isFullScreen=true
+Regex_Pattern = r'okokok'	# Do not delete 'r'.
+
+https://www.hackerrank.com/challenges/branch-reset-groups/problem?isFullScreen=true
+В качестве языка выбрал Perl
+$Regex_Pattern = '^\d{2}(?|(-)|(---)|(:)|(.))\d{2}(?:\1\d{2}){2,2}$';
